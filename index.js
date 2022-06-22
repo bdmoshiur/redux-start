@@ -3,6 +3,8 @@
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
 const ADDUSER = "ADDUSER";
+
+
 //state
 
 const initialCounterState = {
@@ -35,5 +37,27 @@ const addUser = () => {
         payload: {
             name:"Jakir"
         }
+    };
+};
+
+// create reducer for counter
+
+const counterReducer = ( state = initialCounterState, action) => {
+
+    switch(action.type) {
+        case INCREMENT:
+        return {
+            ...state,
+            counter: state.counter + 1,
+        }
+        case DECREMENT:
+        return{
+            ...state,
+            counter: state.counter - 1,
+        }
+
+        default:
+            state;
+
     }
 }
