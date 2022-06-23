@@ -1,5 +1,7 @@
-// const defining
 
+const {createStore} = require('redux')
+
+// const defining
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
 const ADDUSER = "ADDUSER";
@@ -40,6 +42,8 @@ const addUser = () => {
     };
 };
 
+
+// Reducer
 // create reducer for counter
 
 const counterReducer = ( state = initialCounterState, action) => {
@@ -61,3 +65,18 @@ const counterReducer = ( state = initialCounterState, action) => {
 
     }
 }
+
+// Store = getState(), dispatch(), subscribe()
+
+// create store
+const store= createStore(counterReducer);
+
+//subscribe
+store.subscribe(()=>{
+    console.log(store.getState());
+});
+
+// dispatch
+store.dispatch(incrementCounterAction);
+
+
